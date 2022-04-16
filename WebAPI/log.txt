@@ -1,0 +1,77 @@
+2022-04-14 15:44:29.283 -06:00 [INF] Starting up
+2022-04-14 15:44:43.647 -06:00 [INF] Now listening on: https://localhost:5001
+2022-04-14 15:44:43.650 -06:00 [INF] Now listening on: http://localhost:5000
+2022-04-14 15:44:43.650 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-14 15:44:43.650 -06:00 [INF] Hosting environment: Development
+2022-04-14 15:44:43.650 -06:00 [INF] Content root path: C:\CodeRepo\AzureApps\WebApi_NoAuth_Serilog\WebApi_NoAuth_Serilog
+2022-04-14 15:45:08.570 -06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/WeatherForecast  
+2022-04-14 15:45:08.592 -06:00 [INF] Executing endpoint 'WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog)'
+2022-04-14 15:45:08.629 -06:00 [INF] Route matched with {action = "Get", controller = "WeatherForecast"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[WebApi_NoAuth_Serilog.WeatherForecast] Get() on controller WebApi_NoAuth_Serilog.Controllers.WeatherForecastController (WebApi_NoAuth_Serilog).
+2022-04-14 15:45:08.631 -06:00 [INF] WeatherForecast request handler invoked.
+2022-04-14 15:45:08.634 -06:00 [INF] Executing ObjectResult, writing value of type 'WebApi_NoAuth_Serilog.WeatherForecast[]'.
+2022-04-14 15:45:08.646 -06:00 [INF] Executed action WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog) in 13.4776ms
+2022-04-14 15:45:08.647 -06:00 [INF] Executed endpoint 'WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog)'
+2022-04-14 15:45:08.649 -06:00 [INF] Request finished in 81.474ms 200 application/json; charset=utf-8
+2022-04-14 15:45:11.832 -06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/WeatherForecast  
+2022-04-14 15:45:11.832 -06:00 [INF] Executing endpoint 'WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog)'
+2022-04-14 15:45:11.833 -06:00 [INF] Route matched with {action = "Get", controller = "WeatherForecast"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[WebApi_NoAuth_Serilog.WeatherForecast] Get() on controller WebApi_NoAuth_Serilog.Controllers.WeatherForecastController (WebApi_NoAuth_Serilog).
+2022-04-14 15:45:11.833 -06:00 [INF] WeatherForecast request handler invoked.
+2022-04-14 15:45:11.833 -06:00 [INF] Executing ObjectResult, writing value of type 'WebApi_NoAuth_Serilog.WeatherForecast[]'.
+2022-04-14 15:45:11.833 -06:00 [INF] Executed action WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog) in 0.8155ms
+2022-04-14 15:45:11.834 -06:00 [INF] Executed endpoint 'WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog)'
+2022-04-14 15:45:11.834 -06:00 [INF] Request finished in 1.9852ms 200 application/json; charset=utf-8
+2022-04-14 15:53:33.484 -06:00 [INF] Starting up
+2022-04-14 15:53:54.768 -06:00 [INF] Starting up
+2022-04-14 15:54:08.848 -06:00 [INF] User profile is available. Using 'C:\Users\ENQEI\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-04-14 15:54:09.235 -06:00 [INF] Now listening on: https://localhost:5001
+2022-04-14 15:54:09.235 -06:00 [INF] Now listening on: http://localhost:5000
+2022-04-14 15:54:09.235 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-14 15:54:09.235 -06:00 [INF] Hosting environment: Development
+2022-04-14 15:54:09.235 -06:00 [INF] Content root path: C:\CodeRepo\AzureApps\WebApi_NoAuth_Serilog\WebApi_NoAuth_Serilog
+2022-04-14 15:54:11.497 -06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/WeatherForecast  
+2022-04-14 15:54:11.523 -06:00 [INF] Executing endpoint 'WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog)'
+2022-04-14 15:54:11.570 -06:00 [INF] Route matched with {action = "Get", controller = "WeatherForecast"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[WebApi_NoAuth_Serilog.WeatherForecast] Get() on controller WebApi_NoAuth_Serilog.Controllers.WeatherForecastController (WebApi_NoAuth_Serilog).
+2022-04-14 15:54:11.573 -06:00 [INF] WeatherForecast request handler invoked.
+2022-04-14 15:54:11.579 -06:00 [INF] Executing ObjectResult, writing value of type 'WebApi_NoAuth_Serilog.WeatherForecast[]'.
+2022-04-14 15:54:11.598 -06:00 [INF] Executed action WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog) in 22.2883ms
+2022-04-14 15:54:11.599 -06:00 [INF] Executed endpoint 'WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog)'
+2022-04-14 15:54:11.601 -06:00 [INF] Request finished in 106.4147ms 200 application/json; charset=utf-8
+2022-04-14 15:54:13.583 -06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/WeatherForecast  
+2022-04-14 15:54:13.583 -06:00 [INF] Executing endpoint 'WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog)'
+2022-04-14 15:54:13.584 -06:00 [INF] Route matched with {action = "Get", controller = "WeatherForecast"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[WebApi_NoAuth_Serilog.WeatherForecast] Get() on controller WebApi_NoAuth_Serilog.Controllers.WeatherForecastController (WebApi_NoAuth_Serilog).
+2022-04-14 15:54:13.584 -06:00 [INF] WeatherForecast request handler invoked.
+2022-04-14 15:54:13.584 -06:00 [INF] Executing ObjectResult, writing value of type 'WebApi_NoAuth_Serilog.WeatherForecast[]'.
+2022-04-14 15:54:13.585 -06:00 [INF] Executed action WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog) in 0.8646ms
+2022-04-14 15:54:13.585 -06:00 [INF] Executed endpoint 'WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog)'
+2022-04-14 15:54:13.585 -06:00 [INF] Request finished in 2.0408ms 200 application/json; charset=utf-8
+2022-04-14 15:56:46.352 -06:00 [INF] Starting up
+2022-04-14 15:56:47.179 -06:00 [INF] User profile is available. Using 'C:\Users\ENQEI\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-04-14 15:56:47.699 -06:00 [INF] Now listening on: https://localhost:5001
+2022-04-14 15:56:47.699 -06:00 [INF] Now listening on: http://localhost:5000
+2022-04-14 15:56:47.699 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-14 15:56:47.700 -06:00 [INF] Hosting environment: Development
+2022-04-14 15:56:47.700 -06:00 [INF] Content root path: C:\CodeRepo\AzureApps\WebApi_NoAuth_Serilog\WebApi_NoAuth_Serilog
+2022-04-14 15:57:06.640 -06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/WeatherForecast  
+2022-04-14 15:57:06.669 -06:00 [INF] Executing endpoint 'WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog)'
+2022-04-14 15:57:06.689 -06:00 [INF] Route matched with {action = "Get", controller = "WeatherForecast"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[WebApi_NoAuth_Serilog.WeatherForecast] Get() on controller WebApi_NoAuth_Serilog.Controllers.WeatherForecastController (WebApi_NoAuth_Serilog).
+2022-04-14 15:57:06.733 -06:00 [INF] Executing action method WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog) - Validation state: "Valid"
+2022-04-14 15:57:06.734 -06:00 [INF] WeatherForecast request handler invoked.
+2022-04-14 15:57:06.738 -06:00 [INF] Executed action method WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 1.0332ms.
+2022-04-14 15:57:06.741 -06:00 [INF] Executing ObjectResult, writing value of type 'WebApi_NoAuth_Serilog.WeatherForecast[]'.
+2022-04-14 15:57:06.755 -06:00 [INF] Executed action WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog) in 62.1823ms
+2022-04-14 15:57:06.756 -06:00 [INF] Executed endpoint 'WebApi_NoAuth_Serilog.Controllers.WeatherForecastController.Get (WebApi_NoAuth_Serilog)'
+2022-04-14 15:57:06.757 -06:00 [INF] Request finished in 119.3163ms 200 application/json; charset=utf-8
+2022-04-14 15:57:15.910 -06:00 [INF] Starting up
+2022-04-14 15:57:16.852 -06:00 [INF] User profile is available. Using 'C:\Users\ENQEI\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-04-14 15:57:17.434 -06:00 [INF] Now listening on: https://localhost:5001
+2022-04-14 15:57:17.434 -06:00 [INF] Now listening on: http://localhost:5000
+2022-04-14 15:57:17.434 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-04-14 15:57:17.434 -06:00 [INF] Hosting environment: Development
+2022-04-14 15:57:17.434 -06:00 [INF] Content root path: C:\CodeRepo\AzureApps\WebApi_NoAuth_Serilog\WebApi_NoAuth_Serilog
+2022-04-14 15:57:28.942 -06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html  
+2022-04-14 15:57:28.988 -06:00 [INF] Request finished in 48.1156ms 200 text/html;charset=utf-8
+2022-04-14 15:57:29.140 -06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json  
+2022-04-14 15:57:29.170 -06:00 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon-32x32.png  
+2022-04-14 15:57:29.196 -06:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2022-04-14 15:57:29.196 -06:00 [INF] Request finished in 26.0087ms 200 image/png
+2022-04-14 15:57:29.227 -06:00 [INF] Request finished in 87.1452ms 200 application/json;charset=utf-8
