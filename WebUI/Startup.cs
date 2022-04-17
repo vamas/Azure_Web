@@ -33,9 +33,11 @@ namespace WebUI
             {
                 BaseAddress = new Uri(Environment.GetEnvironmentVariable("WEATHERFORECAST_API"))
             };
-            httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Environment.GetEnvironmentVariable("OCP_APIM_SUBSCRIPTION_KEY"));
-            httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Trace", "true");
-
+            if (Environment.GetEnvironmentVariable("OCP_APIM_SUBSCRIPTION_KEY") != null)
+            {
+                httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Environment.GetEnvironmentVariable("OCP_APIM_SUBSCRIPTION_KEY"));
+                httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Trace", "true");
+            }
 
             services.AddSingleton((container) =>
              {
