@@ -28,11 +28,19 @@ namespace WebUI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IConfiguration>(Configuration);
-            services.AddSingleton<ApiClient>((container) =>
+            services.AddSingleton(Configuration);
+            HttpClient httpClient = new HttpClient
+            {
+                BaseAddress = new Uri(Environment.GetEnvironmentVariable("WEATHERFORECAST_API"))
+            };
+            httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Environment.GetEnvironmentVariable("OCP_APIM_SUBSCRIPTION_KEY"));
+            httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Trace", "true");
+
+
+            services.AddSingleton((container) =>
              {
                  var logger = container.GetRequiredService<ILogger<ApiClient>>();
-                 return new ApiClient(new HttpClient { BaseAddress = new Uri(Environment.GetEnvironmentVariable("WEATHERFORECAST_API")) }, logger);
+                 return new ApiClient(httpClient, logger);
              });
 
             services.AddAuthentication(AzureADDefaults.AuthenticationScheme)

@@ -24,8 +24,8 @@ namespace WebUI.Service
 
         public async Task<List<WeatherForecast>> GetCollection()
         {
-            _logger.LogInformation(String.Format("Fetching data from: {0}", _client.BaseAddress + "WeatherForecast"));
-            var response = await _client.GetAsync(_client.BaseAddress + "WeatherForecast");
+            _logger.LogInformation(String.Format("Fetching data from: {0}", _client.BaseAddress + "api/WeatherForecast"));
+            var response = await _client.GetAsync(_client.BaseAddress + "api/WeatherForecast");            
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 return await response.Content.ReadFromJsonAsync<List<WeatherForecast>>();

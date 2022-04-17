@@ -12,7 +12,7 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "WEATHERFORECAST_API": "https://localhost:5001",
+        "WEATHERFORECAST_API": "https://webapps-apimanagement.azure-api.net",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
