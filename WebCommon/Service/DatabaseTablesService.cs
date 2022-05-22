@@ -23,7 +23,7 @@ namespace WebCommon.Service
         {
             try
             {
-                return (await _apiClient.GetDatabaseTables()).ToArray();
+                return (await _apiClient.Get<DatabaseTable>("/databasetables")).ToArray();                
             }
             catch (Exception ex)
             {

@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.AzureAD.UI;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Identity.Web;
 using System;
 using System.Net.Http;
 using WebCommon.Model;
@@ -32,8 +35,10 @@ namespace WebUI
 
             HttpClient httpClient = new HttpClient
             {
-                BaseAddress = new Uri(Environment.GetEnvironmentVariable("WEATHERFORECAST_API"))
+                //BaseAddress = new Uri(Environment.GetEnvironmentVariable("WEATHERFORECAST_API"))
+                BaseAddress = new Uri((string)Configuration.GetSection("CallApi").GetValue(typeof(string), "ApiBaseAddress"))
             };
+
             if (Environment.GetEnvironmentVariable("OCP_APIM_SUBSCRIPTION_KEY") != null)
             {
                 httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Environment.GetEnvironmentVariable("OCP_APIM_SUBSCRIPTION_KEY"));
@@ -41,13 +46,19 @@ namespace WebUI
             }
 
             services.AddSingleton((container) =>
-             {
+            {
                  var logger = container.GetRequiredService<ILogger<ApiClient>>();
-                 return new ApiClient(httpClient, logger);
-             });
+                 return new ApiClient(httpClient, logger, services.BuildServiceProvider().GetService<ITokenAcquisition>(), Configuration);
+            });
 
-            services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
-                .AddAzureAD(options => Configuration.Bind("AzureAd", options));
+            string[] initialScopes = Configuration.GetValue<string>("CallApi:ScopeForAccessToken")?.Split(' ');
+
+            services.AddMicrosoftIdentityWebAppAuthentication(Configuration)
+                .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
+                .AddInMemoryTokenCaches();
+
+            services.Configure<CookieAuthenticationOptions>(CookieAuthenticationDefaults.AuthenticationScheme, 
+                options => options.Events = new RejectSessionCookieWhenAccountNotInCacheEvents());
 
             services.AddControllersWithViews(options =>
             {

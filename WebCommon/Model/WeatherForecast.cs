@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WebCommon.Model
 {
-    public class WeatherForecast
+    public class WeatherForecast : EntityBase
     {
         public DateTime Date { get; set; }
 

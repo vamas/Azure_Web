@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WebCommon.Model
 {
-    public class DatabaseTable
+    public class DatabaseTable : EntityBase
     {
         public string name { get; set; }
         public long object_id { get; set; }

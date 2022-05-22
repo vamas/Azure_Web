@@ -22,7 +22,7 @@ namespace WebCommon.Service
         {
             try
             {
-                return (await _apiClient.GetWeatherForecast()).ToArray();
+                return (await _apiClient.Get<WeatherForecast>("/weatherforecast")).ToArray();
             }
             catch (Exception ex)
             {

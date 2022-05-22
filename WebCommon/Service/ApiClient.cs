@@ -5,27 +5,39 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
 using WebCommon.Model;
+using Microsoft.Identity.Web;
+using Microsoft.Extensions.Configuration;
+using System.Net.Http.Headers;
 
 namespace WebCommon.Service
 {
     public class ApiClient
     {
-        protected readonly HttpClient _client;
-        protected readonly ILogger<ApiClient> _logger;
+        private readonly HttpClient _client;
+        private readonly ILogger<ApiClient> _logger;
+        private readonly ITokenAcquisition _tokenAcquisition;
+        private readonly IConfiguration _configuration;
 
-        public ApiClient(HttpClient client, ILogger<ApiClient> logger)
+        public ApiClient(HttpClient client, ILogger<ApiClient> logger, ITokenAcquisition tokenAcquisition, IConfiguration configuration)
         {
             _client = client;
             _logger = logger;
+            _tokenAcquisition = tokenAcquisition;
+            _configuration = configuration;
         }
 
-        public async Task<List<WeatherForecast>> GetWeatherForecast()
+        public async Task<List<T>> Get<T>(string endpoint)
         {
-            _logger.LogInformation(String.Format("Fetching data from: {0}", _client.BaseAddress + "WeatherForecast"));
-            var response = await _client.GetAsync(_client.BaseAddress + "WeatherForecast");            
+            _logger.LogInformation(String.Format("Fetching data from: {0}", new Uri(_client.BaseAddress, endpoint)));
+
+            var scope = _configuration["CallApi:ScopeForAccessToken"];
+            var accessToken = await _tokenAcquisition.GetAccessTokenForUserAsync(new[] { scope });
+            _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+            var response = await _client.GetAsync(new Uri(_client.BaseAddress, endpoint));
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                return await response.Content.ReadFromJsonAsync<List<WeatherForecast>>();
+                return await response.Content.ReadFromJsonAsync<List<T>>();
             }
             var ex = new HttpRequestException("WebApi request error");
             _logger.LogError(ex.Message);
@@ -33,18 +45,32 @@ namespace WebCommon.Service
         }
 
 
-        public async Task<List<DatabaseTable>> GetDatabaseTables()
-        {
-            _logger.LogInformation(String.Format("Fetching data from: {0}", _client.BaseAddress + "databasetables"));
-            var response = await _client.GetAsync(_client.BaseAddress + "databasetables");
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                return await response.Content.ReadFromJsonAsync<List<DatabaseTable>>();
-            }
-            var ex = new HttpRequestException("WebApi request error");
-            _logger.LogError(ex.Message);
-            throw ex;
-        }
+        //public async Task<List<WeatherForecast>> GetWeatherForecast()
+        //{
+        //    _logger.LogInformation(String.Format("Fetching data from: {0}", _client.BaseAddress + "WeatherForecast"));
+        //    var response = await _client.GetAsync(_client.BaseAddress + "WeatherForecast");            
+        //    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+        //    {
+        //        return await response.Content.ReadFromJsonAsync<List<WeatherForecast>>();
+        //    }
+        //    var ex = new HttpRequestException("WebApi request error");
+        //    _logger.LogError(ex.Message);
+        //    throw ex;
+        //}
+
+
+        //public async Task<List<DatabaseTable>> GetDatabaseTables()
+        //{
+        //    _logger.LogInformation(String.Format("Fetching data from: {0}", _client.BaseAddress + "databasetables"));
+        //    var response = await _client.GetAsync(_client.BaseAddress + "databasetables");
+        //    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+        //    {
+        //        return await response.Content.ReadFromJsonAsync<List<DatabaseTable>>();
+        //    }
+        //    var ex = new HttpRequestException("WebApi request error");
+        //    _logger.LogError(ex.Message);
+        //    throw ex;
+        //}
 
 
     }
