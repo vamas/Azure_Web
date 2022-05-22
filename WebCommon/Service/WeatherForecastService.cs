@@ -2,9 +2,9 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using WebUI.Service;
+using WebCommon.Model;
 
-namespace WebUI.Data
+namespace WebCommon.Service
 {
     public class WeatherForecastService
     {
@@ -22,7 +22,7 @@ namespace WebUI.Data
         {
             try
             {
-                return (await _apiClient.GetCollection()).ToArray();
+                return (await _apiClient.GetWeatherForecast()).ToArray();
             }
             catch (Exception ex)
             {

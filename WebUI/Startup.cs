@@ -10,8 +10,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Net.Http;
-using WebUI.Data;
-using WebUI.Service;
+using WebCommon.Model;
+using WebCommon.Service;
 
 namespace WebUI
 {
@@ -29,6 +29,7 @@ namespace WebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(Configuration);
+
             HttpClient httpClient = new HttpClient
             {
                 BaseAddress = new Uri(Environment.GetEnvironmentVariable("WEATHERFORECAST_API"))
@@ -59,6 +60,7 @@ namespace WebUI
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddSingleton<DatabaseTablesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

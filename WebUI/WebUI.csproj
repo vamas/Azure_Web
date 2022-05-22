@@ -12,7 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\" />
     <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebCommon\WebCommon.csproj" />
   </ItemGroup>
 
 </Project>

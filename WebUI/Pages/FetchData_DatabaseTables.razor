@@ -1,0 +1,45 @@
+﻿@page "/fetchdata_databasetables"
+
+@using WebCommon.Model
+@using WebCommon.Service
+@inject DatabaseTablesService DatabaseTablesService
+
+<h1>Database tables</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (tables == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>ObjectID</th>
+                <th>Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var table in tables)
+            {
+                <tr>
+                    <td>@table.name</td>
+                    <td>@table.object_id</td>
+                    <td>@table.create_date.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private DatabaseTable[] tables;
+
+    protected override async Task OnInitializedAsync()
+    {
+        tables = await DatabaseTablesService.GetDatabaseTablesAsync();
+    }
+}

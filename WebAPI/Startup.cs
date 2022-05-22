@@ -4,6 +4,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication;
+using WebAPI.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Collections.Generic;
+using Microsoft.Identity.Web;
+using Microsoft.AspNetCore.Authentication.AzureAD.UI;
 
 namespace WebAPI
 {
@@ -20,11 +26,16 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddTransient<Repository>();
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Entity Mapper API", Version = "v1" });
             });
+
+            //services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAD");
+            services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
+                .AddAzureADBearer(options => Configuration.Bind("AzureAD", options));
 
             services.AddMvc();
         }
@@ -51,6 +62,8 @@ namespace WebAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

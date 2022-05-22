@@ -12,15 +12,17 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "WEATHERFORECAST_API": "https://webapps-apimanagement.azure-api.net",
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "WEATHERFORECAST_API": "https://localhost:44336",
+        "OCP_APIM_SUBSCRIPTION_KEY": "6ceb2c5a447b4446878751d11435efa2"
       }
     },
     "WebApi_UI": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "WEATHERFORECAST_API": "https:/localhost:44336"
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000"
     }
