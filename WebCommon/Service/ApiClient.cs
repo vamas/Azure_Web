@@ -43,35 +43,5 @@ namespace WebCommon.Service
             _logger.LogError(ex.Message);
             throw ex;
         }
-
-
-        //public async Task<List<WeatherForecast>> GetWeatherForecast()
-        //{
-        //    _logger.LogInformation(String.Format("Fetching data from: {0}", _client.BaseAddress + "WeatherForecast"));
-        //    var response = await _client.GetAsync(_client.BaseAddress + "WeatherForecast");            
-        //    if (response.StatusCode == System.Net.HttpStatusCode.OK)
-        //    {
-        //        return await response.Content.ReadFromJsonAsync<List<WeatherForecast>>();
-        //    }
-        //    var ex = new HttpRequestException("WebApi request error");
-        //    _logger.LogError(ex.Message);
-        //    throw ex;
-        //}
-
-
-        //public async Task<List<DatabaseTable>> GetDatabaseTables()
-        //{
-        //    _logger.LogInformation(String.Format("Fetching data from: {0}", _client.BaseAddress + "databasetables"));
-        //    var response = await _client.GetAsync(_client.BaseAddress + "databasetables");
-        //    if (response.StatusCode == System.Net.HttpStatusCode.OK)
-        //    {
-        //        return await response.Content.ReadFromJsonAsync<List<DatabaseTable>>();
-        //    }
-        //    var ex = new HttpRequestException("WebApi request error");
-        //    _logger.LogError(ex.Message);
-        //    throw ex;
-        //}
-
-
     }
 }

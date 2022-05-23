@@ -33,7 +33,6 @@ namespace WebAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Entity Mapper API", Version = "v1" });
             });
 
-            //services.AddMicrosoftIdentityWebApiAuthentication(Configuration, "AzureAD");
             services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
                 .AddAzureADBearer(options => Configuration.Bind("AzureAD", options));
 
